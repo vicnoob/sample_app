@@ -43,4 +43,17 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :test
   host = '127.0.0.1:3000' # Don't use this literally; use your local dev host instead
   config.action_mailer.default_url_options = { host: host, protocol: 'https' }
+
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  host = 'localhost:3000'
+  config.action_mailer.default_url_options = { host: host }
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 '587',
+    domain:               'localhost:3000',
+    user_name:            'vicnoob.gg',
+    password:             'vicnoob123',
+    authentication:       'plain',
+    enable_starttls_auto: true  }
 end
